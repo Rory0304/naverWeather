@@ -66,11 +66,11 @@ class naverWeather():
         self.addr = None
         self.result = None
         
-        cityNum = naverWeather.map_cityNum[area]
-        if not cityNum:
-            print("도시명 잘못")
-            # 잘못된 도시명을 입력한 경우
+        if not area in naverWeather.map_cityNum.keys():
             return
+        
+        cityNum = naverWeather.map_cityNum[area]
+
         self.addr = naverWeather.addr + cityNum
         
         self.search()
